@@ -1,2 +1,2 @@
-# Мой конфиг для hyprland
+# My config for hyprland
 
