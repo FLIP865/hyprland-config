@@ -23,7 +23,7 @@
         "format": "{icon}",
         "on-click": "activate",
         "on-click-right": "fullscreen",
-        "icon-theme": "WhiteSur",
+        "icon-theme": "Parpirus",
         "icon-size": 25,
         "tooltip-format": "{title}"
     },
