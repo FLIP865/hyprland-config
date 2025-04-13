@@ -46,5 +46,8 @@ git clone https://aur.archlinux.org/yay.git
 cd yay/
 makepkg -si
 ```
-
+9. Wallpapers
+```
+git clone https://gitlab.com/jacinthsamuel/wallpapers
+```
 
