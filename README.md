@@ -43,6 +43,8 @@ cd Graphite-gtk-theme/
 8. yay
 ```
 git clone https://aur.archlinux.org/yay.git
+cd yay/
+makepkg -si
 ```
 
 
