@@ -34,4 +34,15 @@ cd ~/.vim/pack/coc/start
 git clone --branch release https://github.com/neoclide/coc.nvim.git --depth=1
 vim -c "helptags coc.nvim/doc/ | q"
 ```
+7. For theme clone repo
+```
+git clone https://github.com/vinceliuice/Graphite-gtk-theme.git
+cd Graphite-gtk-theme/
+./install.sh
+```
+8. yay
+```
+git clone https://aur.archlinux.org/yay.git
+```
+
 
