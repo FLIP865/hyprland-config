@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import subprocess
 import sys
+import time
+import shutil
 
 # Список пакетов для разработки и утилит
 DEV_PACKAGES = [
@@ -17,15 +19,17 @@ DEV_PACKAGES = [
     "ttf-nerd-fonts-symbols", "ttf-nerd-fonts-symbols-mono", "ttf-jetbrains-mono-nerd", 
     "ttf-dejavu", "ttf-liberation", "ttf-fira-sans", "ttf-fira-code", 
     "ttf-font-awesome", "otf-font-awesome", "ttf-jetbrains-mono", "papirus-icon-theme",
-    # Утилиты для работы с архивами
-    "unzip", "zip", "7zip", "unrar", "tar",
-    # Утилиты для работы с дисками
+    # Архиваторы
+    "unzip", "zip", "p7zip", "unrar", "tar",
+    # Диски
     "gparted", "dosfstools", "exfat-utils", "ntfs-3g",
-    # VLC и зависимости
+    # Видео-аудио
     "vlc", "libdvdread", "libdvdcss", "sshfs",
     # Thunar и плагины
-    "thunar", "udisks2", "thunar-volman", "gvfs", "gvfs-afc", "gvfs-smb", "gvfs-mtp", "gvfs-gphoto2", "gvfs-nfs", "gvfs-udisks2", "gvfs-fuse", "thunar-archive-plugin", "thunar-media-tags-plugin", "tumbler", "ffmpegthumbnailer",
-    # Утилиты для настройки тем и курсоров
+    "thunar", "udisks2", "thunar-volman", "gvfs", "gvfs-afc", "gvfs-smb", "gvfs-mtp", "gvfs-gphoto2", 
+    "gvfs-nfs", "gvfs-udisks2", "gvfs-fuse", "thunar-archive-plugin", "thunar-media-tags-plugin", "tumbler", 
+    "ffmpegthumbnailer",
+    # Темы и курсоры
     "nwg-look", "capitaine-cursors"
 ]
 
@@ -33,34 +37,50 @@ DEV_PACKAGES = [
 GNOME_OFFICIAL_TOOLS = [
     "evince", "gnome-calculator", "gnome-text-editor", "gnome-disk-utility", "gucharmap",
     "gthumb", "gnome-clocks", "gnome-firmware",
-    "eog"  # Eye of GNOME
+    "eog"
 ]
 
+def print_progress_bar(iteration, total, prefix='', suffix='', length=50, fill='█'):
+    percent = f"{100 * (iteration / float(total)):.1f}"
+    filled_length = int(length * iteration // total)
+    bar = fill * filled_length + '-' * (length - filled_length)
+    print(f'\r{prefix} |{bar}| {percent}% {suffix}', end='\r')
+    if iteration == total: 
+        print()
+
 def install_packages():
-    # Объединяем все пакеты в один список
-    all_packages = DEV_PACKAGES + GNOME_OFFICIAL_TOOLS
+    all_packages = list(set(DEV_PACKAGES + GNOME_OFFICIAL_TOOLS))
+    total = len(all_packages)
 
-    # Удаляем дубликаты (на всякий случай)
-    all_packages = list(set(all_packages))
-
-    print("Обновление системы и установка пакетов...")
+    print("🔄 Обновление системы...")
     try:
-        # Обновляем систему
         subprocess.run(["sudo", "pacman", "-Syu", "--noconfirm"], check=True)
-
-        # Устанавливаем все пакеты
-        subprocess.run(["sudo", "pacman", "-S", "--noconfirm"] + all_packages, check=True)
-
-        print("Все пакеты успешно установлены!")
-
-        # Обновляем кэш шрифтов
-        print("Обновление кэша шрифтов...")
-        subprocess.run(["sudo", "fc-cache", "-fv"], check=True)
-
-    except subprocess.CalledProcessError as e:
-        print(f"Ошибка при установке: {e}")
+    except subprocess.CalledProcessError:
+        print("❌ Ошибка обновления системы!")
         sys.exit(1)
 
+    print("\n🚀 Установка пакетов...")
+
+    for idx, package in enumerate(all_packages, start=1):
+        try:
+            subprocess.run(["sudo", "pacman", "-S", "--needed", "--noconfirm", package], check=True)
+            print_progress_bar(idx, total, prefix='Прогресс', suffix=f'Установлено: {idx}/{total}')
+        except subprocess.CalledProcessError:
+            print(f"\n❌ Ошибка установки пакета: {package}")
+
+    print("\n✅ Все пакеты установлены!")
+
+    # Обновляем кэш шрифтов
+    print("🔄 Обновление кэша шрифтов...")
+    try:
+        subprocess.run(["sudo", "fc-cache", "-fv"], check=True)
+    except subprocess.CalledProcessError:
+        print("⚠️ Ошибка обновления кэша шрифтов, но это не критично.")
+
 if __name__ == "__main__":
-    print("Установка пакетов для Arch Linux...")
+    if shutil.which("pacman") is None:
+        print("❌ Это не Arch Linux или pacman не установлен.")
+        sys.exit(1)
+
+    print("🎯 Запуск установщика пакетов для Arch Linux...\n")
     install_packages()
