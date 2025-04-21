@@ -13,7 +13,8 @@ DEV_PACKAGES = [
     "obsidian", "python-pip", "python3", "nodejs", "npm", "vim", 
     "net-tools", "nmap", "hydra", "aircrack-ng", "fastfetch", "neofetch", "htop",
     "hyprpicker", "libreoffice-fresh", "openvpn", "dhcpcd", "base", "base-devel", "linux", 
-    "linux-firmware", "networkmanager", "mako", "wofi", "rofi", "xdg-user-dirs",
+    "linux-firmware", "linux-headers", "networkmanager", "mako", "wofi", "rofi", 
+    "xdg-user-dirs", "torbrowser-launcher", "wine",
     # Шрифты
     "cantarell-fonts", "noto-fonts", "noto-fonts-emoji", "noto-fonts-cjk", 
     "ttf-nerd-fonts-symbols", "ttf-nerd-fonts-symbols-mono", "ttf-jetbrains-mono-nerd", 
