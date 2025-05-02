@@ -11,7 +11,7 @@ DEV_PACKAGES = [
     "audacity", "dconf-editor",
     "neovim", "obs-studio", "telegram-desktop", "cowsay",
     "obsidian", "python-pip", "python3", "nodejs", "npm", "vim", 
-    "net-tools", "nmap", "hydra", "aircrack-ng", "fastfetch", "neofetch", "htop",
+    "net-tools", "nmap", "hydra", "aircrack-ng", "fastfetch", "neofetch", "htop", "btop",
     "hyprpicker", "libreoffice-fresh", "openvpn", "dhcpcd", "base", "base-devel", "linux", 
     "linux-firmware", "linux-headers", "networkmanager", "ninja", "meson", "make", "cmake",
     "clangd", 
