@@ -6,7 +6,8 @@ import shutil
 
 # Список пакетов для разработки и утилит
 DEV_PACKAGES = [
-    "baobab", "timeshift", "wireshark-qt",
+    "baobab", "timeshift", "wireshark-qt", "libxml2-legacy", 
+    "raylib", "sdl2-compat", "sdl2_image",
     "filezilla", "discord", "chromium", "keepassxc", 
     "audacity", "dconf-editor",
     "neovim", "obs-studio", "telegram-desktop", "cowsay",
@@ -39,7 +40,7 @@ DEV_PACKAGES = [
 # Список официальных инструментов GNOME
 GNOME_OFFICIAL_TOOLS = [
     "evince", "gnome-calculator", "gnome-text-editor", "gnome-disk-utility", "gucharmap",
-    "gthumb", "gnome-clocks", "gnome-firmware",
+    "gthumb", "gnome-clocks", "gnome-calendar", "gnome-firmware",
     "eog"
 ]
 
