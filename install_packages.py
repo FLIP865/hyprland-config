@@ -17,7 +17,8 @@ DEV_PACKAGES = [
     "linux-firmware", "linux-headers", "networkmanager", "ninja", "meson", "make", "cmake",
     "clang", "clang18", "nuspell", "libvoikko", "aspell",
     "mako", "wofi", "rofi", 
-    "xdg-user-dirs", "torbrowser-launcher", "wine",
+    "xdg-user-dirs", "torbrowser-launcher", 
+    "wine",
     # Шрифты
     "cantarell-fonts", "noto-fonts", "noto-fonts-emoji", "noto-fonts-cjk", 
     "ttf-nerd-fonts-symbols", "ttf-nerd-fonts-symbols-mono", "ttf-jetbrains-mono-nerd", 
