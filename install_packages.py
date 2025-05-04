@@ -15,7 +15,7 @@ DEV_PACKAGES = [
     "net-tools", "nmap", "hydra", "aircrack-ng", "fastfetch", "neofetch", "htop", "btop",
     "hyprpicker", "libreoffice-fresh", "openvpn", "dhcpcd", "base", "base-devel", "linux", 
     "linux-firmware", "linux-headers", "networkmanager", "ninja", "meson", "make", "cmake",
-    "clang", "clang18", "nuspell", "libvoikko", "aspell",
+    "clang", "clang18", "nuspell", "libvoikko", "aspell", "hspell",
     "mako", "wofi", "rofi", 
     "xdg-user-dirs", "torbrowser-launcher", 
     "wine",
