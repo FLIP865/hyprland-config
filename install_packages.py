@@ -9,7 +9,7 @@ DEV_PACKAGES = [
     "baobab", "timeshift", "wireshark-qt", "libxml2-legacy", 
     "raylib", "sdl2-compat", "sdl2_image",
     "filezilla", "discord", "chromium", "keepassxc", 
-    "audacity", "dconf-editor", "valgrind", "asciidoctor", "asciidoc"
+    "audacity", "dconf-editor", "valgrind", "asciidoctor", "asciidoc",
     "neovim", "obs-studio", "telegram-desktop", "cowsay",
     "obsidian", "python-pip", "python3", "nodejs", "npm", "vim", 
     "net-tools", "nmap", "hydra", "aircrack-ng", "fastfetch", "neofetch", "htop", "btop",
